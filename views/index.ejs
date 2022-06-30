@@ -35,21 +35,14 @@
             <div class="container">
                 <h2>serviços</h2>
                 <div class="items">
-                    <article>
-                        <div class="thumb"></div>
-                        <h3><%=servicos[0].nome%></h3>
-                        <h4>R$<%=servicos[0].valor%></h4>
-                    </article>
-                    <article>
-                        <div class="thumb"></div>
-                        <h3><%=servicos[1].nome%></h3>
-                        <h4>R$<%=servicos[1].valor%></h4>
-                    </article>
-                    <article>
-                        <div class="thumb"></div>
-                        <h3>b</h3>
-                        <h4>R$</h4>
-                    </article>
+                    <% for(let servico of servicos){ %>
+                        <article>
+                            <div class="thumb"></div>
+                            <h3><%=servico.nome%></h3>
+                            <h4>R$<%=servico.valor%></h4>
+                        </article>
+                    <% } %>   
+                    
                 </div>
             </div>
         </section>
