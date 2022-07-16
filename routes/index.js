@@ -10,10 +10,13 @@ const sobreController = require('../controllers/sobreController')
 router.get('/hello',petsController.hello)
 router.get('/pets' , petsController.index)
 router.get('/',indexController.home)
-router.get('/cadastro',cadastroController.cadastro)
+router.get('/create',indexController.create)
+router.get('/cadastro',cadastroController.viewCadastro)
+router.post('/cadastro',cadastroController.salvarCadastro)
 router.get('/servico',servicoController.home)
 router.get('/login',loginController.home)
 router.get('/sobre',sobreController.home)
+
 
 
 module.exports = router;
