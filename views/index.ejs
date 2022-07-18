@@ -10,24 +10,40 @@
 </head>
 
 <body>
-    <%- include('./partials/header.ejs') %> 
+    <%-include('./partials/header.ejs')%> 
     <main>
-        <!-- <p><%=JSON.stringify(servicos)%></p> -->
+        
+        
+
         <section class="banner">
             <div class="container">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt </p>
                 <img src="../images/ilustra-park.png" alt="ilustração de pessoa passeando com o cachorro na praça">
             </div>
         </section>
-        <section>
-            <form action="/cadastro" method="post">
-                <label for="nome">Nome Serviço</label>
-                <input type="text" name="nome" id="nome" required>
-                <label for="valor">Valor</label>
-                <input type="number" name="valor" id="valor" required>
-                <label for="imagem">Nome Serviço</label>
-                <input type="file" name="imagemServico" id="imagemServico" required>
-                <button type="submit" class="btn btn-primary"start>Enviar</button>
+        <section>          
+
+            <% if(typeof errors!=='undefined'){ %> 
+                <ul>
+                    <% for(let error in errors){ %>
+                        <li><%= errors[error].msg %> </li> 
+                    <% } %> 
+                </ul>  
+            <% } %> 
+
+
+            <form action="/cadastro" method="post" enctype="multipart/form-data">
+                <div style="padding: 0 40px;">
+                    <label >Nome Serviço</label>
+                    <input type="text" name="nome">
+                    <label >Valor</label>
+                    <input type="number" name="valor" id="valor" >
+                    <label >Email</label>
+                    <input type="email" name="email" id="email" >
+                    <label >Nome Serviço</label>
+                    <input type="file" name="imagemServico" id="imagemServico" >
+                    <button type="submit" class="btn btn-primary"start>Enviar</button>
+                </div>
             </form>
         </section>
         <section class="servicos">

@@ -267,3 +267,10 @@ section.contato a:any-link,
 section.contato p {
     color: #575757;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}

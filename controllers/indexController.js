@@ -1,5 +1,15 @@
-const listaServicos = [{ nome: "banho", valor: 500 }, { nome: 'tosa', valor: 1000 }, { nome: 'tosa', valor: 1000 }, { nome: 'higienica', valor: 333 }, { nome: 'limpeza', valor: 3000 }]
+const listaServicos = [
+    { nome: "banho", valor: 500 }, 
+    { nome: 'tosa', valor: 1000 }, 
+    { nome: 'tosa', valor: 1000 }, 
+    { nome: 'higienica', valor: 333 }, 
+    { nome: 'limpeza', valor: 3000 }
+]
 const fs = require('fs')
+const {validationResult} = require('express-validator')
+
+
+
 const crud = {
     tabelaPreco: [],
     read() {
@@ -20,6 +30,16 @@ const indexController = {
     create: (req, res) => {
         console.log('aqui foi create')
     },
+    salvarCadastro: (req, res) => {
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            return res.render('index', {errors: errors.mapped()})
+        };
+        if(!req.file){
+            return res.send('você deve enviar um arquivo.');
+        }
+        return res.send('deu certo');
+    }
 };
 // create
 
@@ -30,7 +50,7 @@ const indexController = {
 
 // read
 
-console.log('leitura do arquivo ');
+console.log('Está Rodando');
 
 
 
